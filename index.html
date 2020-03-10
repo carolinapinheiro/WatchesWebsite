@@ -1,0 +1,528 @@
+<html>
+<title>SRI Lda.</title>
+<link rel="icon" type="imagens/sri.png" href="imagens/sri.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+.w3-bar
+{
+color:white;
+ float: center;
+
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('Relogios/edicoes/f-16(2)/1.JPG');
+    min-height: 100%;
+}
+
+/* Second image (Relogios) */
+.bgimg-2 {
+    background-image: url("Relogios/edicoes/Marinha 700 anos/3.JPG");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("Relogios/edicoes/f-16/2.JPG");
+    min-height: 400px;
+}
+
+/* four image (Contact) */
+.bgimg-4 {
+    background-image: url("Relogios/edicoes/501/2.JPG");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+        background-attachment: scroll;
+    }
+}
+
+w3-hover-black
+{
+.height:20%;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.openBtn {
+    background: none;
+    border: none;
+    padding: 11.5px 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.openBtn:hover {
+    background: #bbb;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+.overlay input[type=text] {
+    padding: 8.5px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: none;
+  color: black;
+  padding: 14px 28px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.default:hover {
+  background: red;
+}
+
+.default {
+  border-color: #e7e7e7;
+  color: white;
+      text-decoration: none;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home" style="font-size:20px"></i> HOME</a>
+    <a href="#sobre" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>  SOBRE NÓS</a>
+	<a href="#relogios" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-clock-o"></i> RELÓGIOS</a>
+    <a href="#lojas" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> LOJAS</a>
+    <a href="#contactos" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACTOS</a>
+	<a href="https://lojaonline-sri.myshopify.com/" target="blank_" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-shopping-cart" style="font-size:18px"></i></i> <b><i>LOJA ONLINE</i></b></a>
+	
+	
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+ <form method="GET" action="index3.php" id="sform">
+      <input type="text" placeholder="Procurar por uma referência ou nome..." name="texto">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<button class="openBtn" onclick="openSearch()"><i class="fa fa-search" style="color:#b30000"></i></button>
+
+<script>
+function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+  </div>
+
+  <!-- Navbar on small screens --> 
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#sobre" class="w3-bar-item w3-button" onclick="toggleFunction()"> SOBRE NÓS</a>
+	<a href="#relogios" class="w3-bar-item w3-button" onclick="toggleFunction()"> RELÓGIOS</a>
+    <a href="#lojas" class="w3-bar-item w3-button" onclick="toggleFunction()"> LOJAS</a>
+    <a href="#contactos" class="w3-bar-item w3-button" onclick="toggleFunction()"> CONTACTOS</a>
+    <a href="https://lojaonline-sri.myshopify.com/" target="blank_" class="w3-bar-item w3-button" onclick="toggleFunction()"> <b><i>LOJA ONLINE</i></b></a>
+  </div>
+</div>
+
+<!-- First Parallax -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="margin-top:15%; margin-left:8%">
+  <span class="w3-jumbo w3-hide-small"><img src="imagens/sri.png" style="width:20%"></span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium"><img src="imagens/sri.png" style="width:20%"></span><br>
+   <span class="w3-large"><i>Série especial para os pilotos dos caças F-16</i></span>
+    <p><a href="edicoesEspeciais.html"  class="btn default">
+	<b>SABER MAIS...</b></a></p>
+	
+ </div> 
+</header>
+
+<!-- Container (Sobre) -->
+<div class="w3-content w3-container w3-padding-64" id="sobre">
+  <h3 class="w3-center">SOBRE</h3>
+  <p><center>Uma empresa criada a partir da paixão do seu fundador pelos relógios mecânicos, a SRI representa em Portugal relógios das marcas<br>
+                      Aviator, Junkers, Vostok Europe, Sturmanskie, Rosenthal, Fortis e Zeppelin.<br><br>
+					  
+		 A missão da SRI consiste em oferecer aos entusiastas portugueses marcas de relógios de grande prestígio mas que , ao mesmo
+tempo, oferecem uma excelente relação qualidade/preço.<br><br>
+ 
+A Sociedade de Relojoaria Independente, Lda. (SRI) iniciou a actividade da empresa dia 22 de janeiro de 2003, 
+ e é o representante e distribuidor exclusivo de todas as marcas dos relógios em Portugal apresentadas no site.
+					 </center> </p><br><br>
+					 
+					  <h3 class="w3-center">MISSÃO</h3>
+  <p><center>
+A missão da SRI consiste em oferecer aos entusiastas de relojoaria marcas de grande prestígio mas que, ao mesmo tempo, se mantêm acessíveis.
+					 </center> </p><br><br>
+					 
+					 					  <h3 class="w3-center">HISTÓRIA</h3>
+  <p><center>
+A Sociedade de Relojoaria Independente representa em Portugal relógios das marcas Aviator, Fortis, Junkers, 
+Rosenthal, Sturmanskie, Vostok Europe e Zepellin.
+A SRI é o único distribuidor do mundo a oferecer garantia vitalícia nos relógios Junkers, para os modelos 
+adquiridos em Portugal através da rede oficial de agentes da marca.
+					 </center> </p>
+					 
+					
+</div>
+
+<!-- Second Parallax -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide"><b>RELÓGIOS E PREÇOS</b></span>
+  </div>
+</div>
+
+<!-- Container (Relogios) -->
+<div class="w3-content w3-container w3-padding-64" id="relogios">
+  <p class="w3-center"><em>Clique nas marcas para ver os relógios existentes e os seus preços</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <a href="junkers.html"><img src="Relogios\junkers\junkers.jpg" style="width:65%" class="w3-hover-opacity"></a>
+    </div>
+
+    <div class="w3-col m3">
+      <a href="sturmanskie.html"><img src="Relogios\Sturmaskie\stur.jpg" style="width:100%" class="w3-hover-opacity" ></a>
+    </div>
+
+    <div class="w3-col m3">
+      <a href="vostokeurope.html"><img src="Relogios\vostok\logo.png" style="width:80%"  class="w3-hover-opacity"></a>
+    </div>
+
+    <div class="w3-col m3">
+      <a href="zeppelin.html"><img src="imagens\ze.png" style="width:100%"  class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-section">
+
+  <div class="w3-col m3">
+      <a href="rosenthal.html"><img src="imagens\Rosenthal.png" style="width:100%"  class="w3-hover-opacity" ></a>
+    </div>
+	
+	    <div class="w3-col m3">
+      <a href="IronAnnie.html"><img src="Relogios\Iron Annie\342.jpg" style="width:100%" class="w3-hover-opacity"></a>
+    </div>
+	
+    <div class="w3-col m3">
+      <a href="aviator.html"><img src="Relogios\Aviator\aviator.png" style="width:110%"  class="w3-hover-opacity"></a>
+    </div>
+
+    <div class="w3-col m3">
+      <a href="fortis.html"><img src="Relogios\fortis\Fortis_logo.png" style="width:100%"  class="w3-hover-opacity" ></a>
+    </div>
+
+	  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3"><br>
+     <a href="edicoesEspeciais.html"><img src="Relogios\edicoes\especial.jpg" style="width:90%"  class="w3-hover-opacity" ></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- four Parallax -->
+<div class="bgimg-4 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide" id="lojas"><b>LOJAS</b></span>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+<!--//
+
+function goToPage763(mySelect)
+
+{
+
+PageIndex2=mySelect.selectedIndex;
+
+{
+
+if
+
+(
+
+mySelect.options[PageIndex2].value != "none"
+
+)
+
+{
+
+//this is the key code in the JavaScript to open the new page in
+
+//the iframe:-
+
+frames['iframe2'].location.href = mySelect.options[PageIndex2].value;
+
+}
+
+}
+
+}
+
+//-->
+
+</script>
+
+<center><h2>LOJAS</h2></center>
+<center><p>Encontre uma loja perto de si</p></center>
+<center><hr width="30%"></center>
+
+<form name="form763">
+<center><select name="select763" onchange="goToPage763(this.form.select763)">
+
+  <option disabled selected value> -- seleciona uma cidade -- </option>
+	<option value="lojaAurora.html">Algés</option>
+	<option value="lojaAlmada.html">Almada</option>
+    <option value="LojaGoldOuro.html">Alverca do Ribatejo</option>
+	<option value="LojaMatos.html">Barreiro</option>
+	<option value="LojaCoru.html">Batalha</option>
+	<option value="LojaOrion.html">Braga</option>
+	<option value="lojacoimbra.html">Coimbra</option>
+	<option value="LojaLeiria.html">Leiria</option>
+	<option value="lojasLisboa.html">Lisboa</option>
+	<option value="LojaCatita.html">Loures</option>
+	<option value="LojaAquiles.html">Marinha Grande</option>
+	<option value="LojaDarvin.html">Montijo</option>
+	<option value="LojaOeiras.html">Oeiras</option>
+	<option value="LojaCarvalho.html">Ovar</option>
+	<option value="LojaPontaDelgada.html">Ponta Delgada</option>
+	<option value="LojaPonteLima.html">Ponta De Lima</option>
+	<option value="LojaBatalha.html">Porto</option>
+	<option value="LojaCatarino.html">Quarteira</option>
+	<option value="lojaqueluz.html">Queluz</option>
+	<option value="LojaPaco.html">Setúbal</option>
+	<option value="LojaFaria.html">Sintra</option>
+	<option value="LojaGaia.html">Vila Nova de Gaia</option>
+	<option value="LojaPessoa.html">Viseu</option>
+
+</select></center>
+</form>	
+
+
+<center><iframe name="iframe2"  src="escolher.html" align="top" height="90%" width="100%"  align="center" frameBorder="0">
+
+
+</iframe></center>
+
+
+<!-- Third Parallax -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide"><b>CONTACTOS</b></span>
+  </div>
+</div>
+
+<!-- Container (Contacto) -->
+<div class="w3-content w3-container w3-padding-64" id="contactos">
+ 
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <!-- Google Maps -->
+      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right" ></i><a style="text-decoration: none">Rua Vera Cruz , n.º 54  Cova da Piedade </a><br><a style="margin-left:10%">2805-052 Almada , Portugal</a><br><br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> +351 216 046 498<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> geral@sri.pt<br><br>
+		<i class="fa fa-clock-o  fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Horario:  Segunda à sexta das 10:30h ao 12:30h<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp e das 14:30h às 17:30h<br>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 ">
+
+  
+  <p class="w3-opacity">
+	 <h2 class="w3-opacity" style="font-size:140%; font-family:Arial"></h2>
+  <a style="font-size:200%"><img src="imagens\sri.png" width="40px"> Sociedade de Relojoaria Independente</a><br>
+  <a style="font-size:90%">COPYRIGHT SRI. TODOS OS DIREITOS RESERVADOS</a>
+   
+  </p>
+  <div class="w3-xlarge w3-section">
+  
+   <a href="https://www.facebook.com/www.sri.pt/" target="_blank"> <i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+   &nbsp
+     <a href="https://www.instagram.com/sri.lda/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+   
+  </div>
+  
+  <br><br><p style="font-size:80%">Website developed by Carolina Pinheiro</p>
+</footer>
+
+ 
+
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(38.6712768,-9.1646944);
+  var mapOptions= {
+    center:myCenter,
+    zoom:14, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1jXPA7gfAXK3ZKlZFo7xJQ8XibvR44M&callback=myMap"></script>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5bbf16e208387933e5bae1f6/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
